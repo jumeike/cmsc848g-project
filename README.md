@@ -73,4 +73,4 @@ python scripts/plot_part2.py    # -> figures/part2_section1.png, part2_section2.
 ./run.sh -t 2:00:00 -g rtx3090   # custom options
 ```
 
-> **No cluster access?** Open `notebook.ipynb` in [Google Colab](https://colab.research.google.com) with a free T4 GPU. Experiments run at 25 epochs (full runs used 100 epochs on an A6000).
+> **Alternative:** `notebook.ipynb` can be run on [Google Colab](https://colab.research.google.com) with a free T4 GPU.
