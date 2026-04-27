@@ -1,15 +1,36 @@
-# CMSC848G Project: Deep Learning with PyTorch
+# CMSC848G: Deep Learning with PyTorch
 
-CIFAR-10 image classification experiments using a minimal CNN and VGG11.
+> CIFAR-10 image classification experiments — Part 1: minimal CNN adaptation, Part 2: VGG11 ablation study.
 
-## Structure
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jumeike/cmsc848g-project/blob/main/notebook.ipynb)
+
+---
+
+## Overview
+
+| Part | Description | Result |
+|------|-------------|--------|
+| Part 1 | Adapt PyTorch MNIST CNN to CIFAR-10 (2 changes) | 73% |
+| Part 2 | VGG11 ablation: BN, activation, optimizer, init, dropout | 62 - 81% |
+
+---
+
+## Project Structure
 
 ```
-scripts/          Training and plotting scripts
-results/          Experiment logs (part1, part2)
-figures/          Generated plots
-run.sh            Interactive GPU job launcher (Nexus/SLURM)
+scripts/
+  cifar10_cnn.py      Part 1 training script
+  vgg_cifar10.py      Part 2 training script (all experiments)
+  plot_part1.py       Plot Part 1 results
+  plot_part2.py       Plot Part 2 results
+results/
+  part1/              Part 1 log
+  part2/              Part 2 experiment logs (7 runs)
+notebook.ipynb        Interactive Colab notebook (both parts)
+run.sh                GPU job launcher (Nexus/SLURM)
 ```
+
+---
 
 ## Setup
 
@@ -17,32 +38,39 @@ run.sh            Interactive GPU job launcher (Nexus/SLURM)
 conda activate cmsc848g
 ```
 
-## Running Experiments
+---
 
-**Part 1** - Adapted MNIST CNN on CIFAR-10:
+## Running
+
+**Part 1**
 ```bash
 python scripts/cifar10_cnn.py | tee results/part1/part1_output.log
 ```
 
-**Part 2** - VGG11 experiments (run from project root):
+**Part 2** (one experiment at a time, e.g. 1a)
 ```bash
-# Example: experiment 1a
 python scripts/vgg_cifar10.py --model vgg11 --activation relu \
     | tee results/part2/1a_vgg11_relu.log
 ```
 
-See `scripts/vgg_cifar10.py --help` for all options.
+All Part 2 options: `python scripts/vgg_cifar10.py --help`
+
+---
 
 ## Plotting
 
 ```bash
-python scripts/plot_part1.py   # figures/part1_plot.png
-python scripts/plot_part2.py   # figures/part2_section1.png, part2_section2.png, part2_comparison.png
+python scripts/plot_part1.py    # -> figures/part1_plot.png
+python scripts/plot_part2.py    # -> figures/part2_section1.png, part2_section2.png, part2_comparison.png
 ```
+
+---
 
 ## GPU Allocation (Nexus cluster)
 
 ```bash
-./run.sh                        # default: 1x RTX A6000, 8h
-./run.sh -t 2:00:00 -g rtx3090
+./run.sh                          # default: 1x RTX A6000, 8h
+./run.sh -t 2:00:00 -g rtx3090   # custom options
 ```
+
+> **No cluster access?** Open `notebook.ipynb` in [Google Colab](https://colab.research.google.com) with a free T4 GPU. Experiments run at 25 epochs (full runs used 100 epochs on an A6000).
