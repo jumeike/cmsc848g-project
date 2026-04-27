@@ -60,7 +60,8 @@ for i, (fname, label, _) in enumerate(section1):
 
 plt.tight_layout()
 plt.savefig(f'{FIGURES_DIR}/part2_section1.png', dpi=150)
-print('Saved figures/part2_section1.png')
+plt.savefig(f'{FIGURES_DIR}/part2_section1.pdf')
+print('Saved figures/part2_section1.png + .pdf')
 plt.close()
 
 # ── Figure 2: Section 2 — Training methods ──────────────────────────────────
@@ -88,7 +89,8 @@ for i, (fname, label, _) in enumerate(section2):
 
 plt.tight_layout()
 plt.savefig(f'{FIGURES_DIR}/part2_section2.png', dpi=150)
-print('Saved figures/part2_section2.png')
+plt.savefig(f'{FIGURES_DIR}/part2_section2.pdf')
+print('Saved figures/part2_section2.png + .pdf')
 plt.close()
 
 # ── Figure 3: Final accuracy comparison bar chart ───────────────────────────
@@ -129,5 +131,6 @@ ax.set_axisbelow(True)
 
 plt.tight_layout()
 plt.savefig(f'{FIGURES_DIR}/part2_comparison.png', dpi=150)
-print('Saved figures/part2_comparison.png')
+plt.savefig(f'{FIGURES_DIR}/part2_comparison.pdf')
+print('Saved figures/part2_comparison.png + .pdf')
 plt.close()

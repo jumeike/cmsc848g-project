@@ -40,4 +40,5 @@ ax2.grid(True)
 
 plt.tight_layout()
 plt.savefig('figures/part1_plot.png', dpi=150)
-print('Saved figures/part1_plot.png')
+plt.savefig('figures/part1_plot.pdf')
+print('Saved figures/part1_plot.png + .pdf')
