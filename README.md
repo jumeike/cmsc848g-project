@@ -34,6 +34,13 @@ run.sh                GPU job launcher (Nexus/SLURM)
 
 ## Setup
 
+**First time** - create the environment from `environment.yml`:
+```bash
+conda env create -f environment.yml
+conda activate cmsc848g
+```
+
+**Returning** - just activate:
 ```bash
 conda activate cmsc848g
 ```
