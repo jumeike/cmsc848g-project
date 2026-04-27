@@ -19,12 +19,12 @@ conda activate cmsc848g
 
 ## Running Experiments
 
-**Part 1** — Adapted MNIST CNN on CIFAR-10:
+**Part 1** - Adapted MNIST CNN on CIFAR-10:
 ```bash
 python scripts/cifar10_cnn.py | tee results/part1/part1_output.log
 ```
 
-**Part 2** — VGG11 experiments (run from project root):
+**Part 2** - VGG11 experiments (run from project root):
 ```bash
 # Example: experiment 1a
 python scripts/vgg_cifar10.py --model vgg11 --activation relu \
